@@ -5,12 +5,19 @@ import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 
 export const SITE_URL = 'https://www.njsug.org'
-export const REGISTRATION_URL =
-  'https://events.teams.microsoft.com/event/716f1807-ff47-400f-8628-e4ebe61e63e5@b1c14d5c-3625-45b3-a430-9552373a0c2f'
+export const SAS_COMMUNITIES_RECAP_URL =
+  'https://communities.sas.com/t5/SAS-User-Groups-Discussions/Recap-of-NJSUG-Virtual-Meeting-June-8/td-p/988406'
+export const RECORDING_URL =
+  'https://players.brightcove.net/6058004174001/default_default/index.html?videoId=6396157862112'
+export const MATERIALS_URL =
+  'https://github.com/yabwon/SAS_PACKAGES/tree/main/SPF/Documentation/LePetitSASpackage'
 export const WEBINAR_2026_PATH = '/events/njsug-2026-webinar'
 export const WEBINAR_2026_URL = `${SITE_URL}${WEBINAR_2026_PATH}`
 export const WEBINAR_2026_START = '2026-05-08T10:00:00-04:00'
 export const WEBINAR_2026_END = '2026-05-08T11:40:00-04:00'
+const BRIGHTCOVE_EMBED_URL = RECORDING_URL
+const RECORDING_THUMBNAIL_URL =
+  'https://cf-images.us-east-1.prod.boltdns.net/v1/jit/6058004174001/d174c9cc-15da-4c39-91b5-c5cfdd791a37/main/160x90/47m25s888ms/match/image.jpg'
 
 type AgendaItem = {
   time: string
@@ -32,6 +39,13 @@ type SpeakerProfile = {
     src: string
     alt: string
   }
+}
+
+type WebinarResource = {
+  label: string
+  href: string
+  description: string
+  action: string
 }
 
 const agendaItems: AgendaItem[] = [
@@ -100,6 +114,30 @@ const speakerProfiles: SpeakerProfile[] = [
   },
 ]
 
+const webinarResources: WebinarResource[] = [
+  {
+    label: 'Webinar Recording',
+    href: RECORDING_URL,
+    description:
+      'Watch the video recording from the NJSUG 2026 webinar recap.',
+    action: 'Watch Recording',
+  },
+  {
+    label: "Bart's Workshop Materials",
+    href: MATERIALS_URL,
+    description:
+      'Open the Le petit SAS package documentation, example SAS program, notebook, and supporting assets on GitHub.',
+    action: 'Open Materials',
+  },
+  {
+    label: 'SAS Communities Recap',
+    href: SAS_COMMUNITIES_RECAP_URL,
+    description:
+      'Read the SAS Communities recap post for the webinar recording and shared follow-up materials.',
+    action: 'Read Recap',
+  },
+]
+
 export const WEBINAR_2026_KEYWORDS = [
   'NJSUG 2026 webinar',
   'Future of Statistical Programming',
@@ -115,18 +153,18 @@ export const WEBINAR_2026_KEYWORDS = [
 
 export function getNjsug2026WebinarMetadata(): Metadata {
   return {
-    title: 'NJSUG 2026 Webinar - Future of Statistical Programming',
+    title: 'NJSUG 2026 Webinar - Recording and Materials',
     description:
-      'Register for the NJSUG 2026 Webinar on May 8, 2026 featuring Danny Modlin and Bartosz Jab\u0142o\u0144ski on the future of statistical programming, SAS, and SAS packages.',
+      'Watch the NJSUG 2026 Webinar recording and access materials from Danny Modlin and Bartosz Jab\u0142o\u0144ski on statistical programming, SAS, and SAS packages.',
     keywords: WEBINAR_2026_KEYWORDS,
     category: 'Event',
     alternates: {
       canonical: WEBINAR_2026_URL,
     },
     openGraph: {
-      title: 'NJSUG 2026 Webinar - Future of Statistical Programming',
+      title: 'NJSUG 2026 Webinar - Recording and Materials',
       description:
-        'Join the NJSUG 2026 Webinar on May 8, 2026 for sessions from Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
+        'Watch the archived NJSUG 2026 webinar and access shared materials from Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
       url: WEBINAR_2026_URL,
       type: 'website',
       siteName: 'NJSUG - New Jersey SAS Users Group',
@@ -142,9 +180,9 @@ export function getNjsug2026WebinarMetadata(): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'NJSUG 2026 Webinar - Future of Statistical Programming',
+      title: 'NJSUG 2026 Webinar - Recording and Materials',
       description:
-        'Join the NJSUG 2026 Webinar on May 8, 2026 for sessions from Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
+        'Watch the archived NJSUG 2026 webinar and access shared materials from Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
       images: [`${SITE_URL}/images/NJSUGBanner.svg`],
     },
   }
@@ -159,7 +197,7 @@ export function getNjsug2026WebinarStructuredData() {
       eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
       location: {
         '@type': 'VirtualLocation',
-        url: REGISTRATION_URL,
+        url: WEBINAR_2026_URL,
       },
       performer: [
         {
@@ -180,24 +218,16 @@ export function getNjsug2026WebinarStructuredData() {
       'An online NJSUG webinar exploring the future of statistical programming with sessions from Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
     startDate: WEBINAR_2026_START,
     endDate: WEBINAR_2026_END,
-    eventStatus: 'https://schema.org/EventScheduled',
+    eventStatus: 'https://schema.org/EventCompleted',
     eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
     location: {
       '@type': 'VirtualLocation',
-      url: REGISTRATION_URL,
+      url: WEBINAR_2026_URL,
     },
     organizer: {
       '@type': 'Organization',
       name: 'NJSUG - New Jersey SAS Users Group',
       url: SITE_URL,
-    },
-    offers: {
-      '@type': 'Offer',
-      url: REGISTRATION_URL,
-      price: '0',
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-01-01T00:00:00-05:00',
     },
     audience: {
       '@type': 'Audience',
@@ -206,6 +236,23 @@ export function getNjsug2026WebinarStructuredData() {
     keywords: WEBINAR_2026_KEYWORDS.join(', '),
     image: `${SITE_URL}/images/NJSUGBanner.svg`,
     url: WEBINAR_2026_URL,
+    subjectOf: [
+      {
+        '@type': 'VideoObject',
+        name: 'NJSUG 2026 Webinar Recording',
+        description:
+          'Recording of the NJSUG 2026 webinar featuring Danny Modlin and Bartosz Jab\u0142o\u0144ski.',
+        url: RECORDING_URL,
+        embedUrl: BRIGHTCOVE_EMBED_URL,
+        thumbnailUrl: RECORDING_THUMBNAIL_URL,
+        uploadDate: '2026-05-20T17:46:23Z',
+      },
+      {
+        '@type': 'CreativeWork',
+        name: 'Le petit SAS package workshop materials',
+        url: MATERIALS_URL,
+      },
+    ],
     subEvent: agendaSubEvents,
   }
 
@@ -276,7 +323,7 @@ export function Njsug2026WebinarPage() {
                         <span className="flex items-center gap-2">
                           <span className="size-2.5 rounded-full bg-white/90 shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
                           <span className="bg-gradient-to-r from-white via-white/95 to-white/90 bg-clip-text text-transparent font-semibold tracking-wide">
-                            NJSUG 2026 Webinar
+                            NJSUG 2026 Webinar | Completed
                           </span>
                         </span>
                       </span>
@@ -292,16 +339,16 @@ export function Njsug2026WebinarPage() {
 
                   <div className="mt-[clamp(0.75rem,3vh,1.75rem)] flex justify-center">
                     <Link
-                      href={REGISTRATION_URL}
+                      href={RECORDING_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Register for 2026 Webinar"
+                      aria-label="Watch the NJSUG 2026 webinar recording"
                     >
                       <div className="relative group">
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#DAFFA9]/40 via-white/20 to-[#DAFFA9]/40 blur-lg scale-110 opacity-70 group-hover:opacity-90 transition-all duration-500 animate-pulse" />
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#DAFFA9]/20 via-transparent to-[#DAFFA9]/20 blur-xl scale-125 opacity-50 group-hover:opacity-70 transition-all duration-700" />
                         <span className="relative inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-[clamp(1.3rem,3vw,2.2rem)] py-[clamp(0.8rem,1.4vw,1.2rem)] text-[clamp(1rem,1.3vw,1.15rem)] font-semibold text-white backdrop-blur-md shadow-[0_8px_32px_rgba(218,255,169,0.3)] transition-all duration-300 hover:bg-white/25 hover:shadow-[0_12px_40px_rgba(218,255,169,0.4)] group-hover:scale-105">
-                          Register
+                          Watch Recording
                         </span>
                       </div>
                     </Link>
@@ -364,6 +411,31 @@ export function Njsug2026WebinarPage() {
         <section className="container mx-auto px-4 pb-20">
           <div className="mx-auto max-w-6xl">
             <div className="rounded-[2rem] border border-white/15 bg-white/8 p-6 shadow-lg shadow-black/10 backdrop-blur-sm md:p-8">
+              <div className="mb-8 rounded-3xl border border-white/10 bg-black/10 p-6">
+                <p className="text-sm uppercase tracking-[0.18em] text-emerald-100/65">
+                  Recording and Materials
+                </p>
+                <div className="mt-5 grid gap-4 md:grid-cols-3">
+                  {webinarResources.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors duration-300 hover:bg-white/10"
+                    >
+                      <p className="text-lg font-semibold text-white">{item.label}</p>
+                      <p className="mt-2 text-sm leading-6 text-white/75">
+                        {item.description}
+                      </p>
+                      <p className="mt-4 text-sm font-medium uppercase tracking-wide text-emerald-100/70">
+                        {item.action}
+                      </p>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
               <div className="max-w-3xl">
                 <p className="text-sm uppercase tracking-[0.24em] text-emerald-100/70">
                   Speakers

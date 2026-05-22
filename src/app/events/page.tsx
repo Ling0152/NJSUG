@@ -8,7 +8,7 @@ const SITE_URL = 'https://www.njsug.org'
 
 export const metadata: Metadata = {
   title: 'Events',
-  description: 'Browse upcoming NJSUG events and registration information.',
+  description: 'Browse current and recent NJSUG event pages, recordings, and materials.',
   alternates: {
     canonical: `${SITE_URL}/events`,
   },
@@ -25,22 +25,22 @@ export default function EventsPage() {
             Events
           </p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-6xl">
-            Upcoming NJSUG Programs
+            NJSUG Programs
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-8 text-emerald-50/90 md:text-lg">
-            Explore upcoming NJSUG events and register for the next webinar.
+            Explore recent NJSUG events, recordings, and shared presentation materials.
           </p>
 
           <div className="mt-10 rounded-3xl border border-white/10 bg-black/10 p-6">
             <p className="text-sm uppercase tracking-[0.2em] text-emerald-100/65">
-              Featured Event
+              Recent Webinar
             </p>
             <h2 className="mt-3 text-2xl font-semibold text-white">
               NJSUG 2026 Webinar
             </h2>
             <p className="mt-3 text-base leading-7 text-emerald-50/85">
-              Future of Statistical Programming on May 8, 2026 from 10:00 AM to
-              11:40 AM ET.
+              Future of Statistical Programming on May 8, 2026, with recording and
+              workshop materials now available.
             </p>
             <Link
               href={WEBINAR_2026_PATH}

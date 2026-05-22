@@ -5,6 +5,7 @@ import type { ReactNode } from 'react'
 
 import { webinarAgendaItems } from '@/components/Agenda'
 import { Navbar } from '@/components/Navbar'
+import { WEBINAR_2026_PATH } from '@/components/Njsug2026WebinarPage'
 import { SPRING_MEETING_ARCHIVE_PATH } from '@/components/SpringMeetingArchivePage'
 import { WEBINAR_ARCHIVE_PATH } from '@/components/WebinarArchivePage'
 import { springMeetingSchedule } from '@/components/Schedule'
@@ -43,6 +44,11 @@ const archiveDetailLink = (path: string) => {
 }
 const archiveLinkClass =
   'font-medium text-emerald-100 underline decoration-white/30 underline-offset-4 transition hover:text-white hover:decoration-white'
+
+const webinar2026Highlights = [
+  'PROC PPF - Past, Present, Future',
+  'Le petit SAS package - a workshop about the "Hello World" SAS package.',
+]
 
 const archiveSections: ArchiveSection[] = [
   {
@@ -579,14 +585,14 @@ const archiveSections: ArchiveSection[] = [
 export const metadata: Metadata = {
   title: 'Presentation Archive',
   description:
-    'Browse the NJSUG archive of past presentations, including the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
+    'Browse the NJSUG archive of past presentations, including the NJSUG 2026 Webinar, the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
   alternates: {
     canonical: ARCHIVE_URL,
   },
   openGraph: {
     title: 'NJSUG Presentation Archive',
     description:
-      'Browse the NJSUG archive of past presentations, including the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
+      'Browse the NJSUG archive of past presentations, including the NJSUG 2026 Webinar, the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
     url: ARCHIVE_URL,
     type: 'website',
     siteName: 'NJSUG - New Jersey SAS Users Group',
@@ -596,7 +602,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'NJSUG Presentation Archive',
     description:
-      'Browse the NJSUG archive of past presentations, including the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
+      'Browse the NJSUG archive of past presentations, including the NJSUG 2026 Webinar, the NJSUG 2025 Webinar, the NJSUG 2025 Spring Meeting, and legacy meetings from 1998 through 2013.',
   },
 }
 
@@ -621,6 +627,46 @@ export default function ArchivePage() {
               assets where needed.
             </p>
           </div>
+
+          <section className="mt-8 rounded-[2rem] border border-white/15 bg-white/8 p-6 shadow-lg shadow-black/10 backdrop-blur-sm md:p-8">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm uppercase tracking-[0.24em] text-emerald-100/70">
+                  Recent Event Archive
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold text-white">
+                  NJSUG 2026 Webinar
+                </h2>
+                <p className="mt-3 text-base leading-7 text-emerald-50/85">
+                  Revisit our May 8, 2026 webinar on the future of statistical
+                  programming, including the recording, recap, and Bart&apos;s SAS
+                  package workshop materials.
+                </p>
+                <Link
+                  href={WEBINAR_2026_PATH}
+                  className="mt-5 inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+                >
+                  Open Event Page
+                </Link>
+              </div>
+
+              <div className="min-w-0 flex-1 rounded-3xl border border-white/10 bg-black/10 p-5">
+                <h3 className="text-lg font-semibold text-white">Agenda Highlights</h3>
+                <ul className="mt-4 space-y-3">
+                  {webinar2026Highlights.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3"
+                    >
+                      <p className="text-sm font-medium leading-6 text-white/95">
+                        {item}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
 
           <section className="mt-8 rounded-[2rem] border border-white/15 bg-white/8 p-6 shadow-lg shadow-black/10 backdrop-blur-sm md:p-8">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
