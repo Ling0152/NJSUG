@@ -4,7 +4,8 @@ import Link from 'next/link'
 
 import { Navbar } from '@/components/Navbar'
 import {
-  REGISTRATION_URL as WEBINAR_2026_REGISTRATION_URL,
+  MATERIALS_URL as WEBINAR_2026_MATERIALS_URL,
+  RECORDING_URL as WEBINAR_2026_RECORDING_URL,
   WEBINAR_2026_PATH,
 } from '@/components/Njsug2026WebinarPage'
 import { SPRING_MEETING_ARCHIVE_PATH } from '@/components/SpringMeetingArchivePage'
@@ -15,11 +16,11 @@ const SITE_URL = 'https://www.njsug.org'
 const recentPrograms = [
   {
     title: 'NJSUG 2026 Webinar',
-    eyebrow: 'Upcoming',
+    eyebrow: 'Recent Archive',
     description:
-      'Future of Statistical Programming on May 8, 2026 from 10:00 AM to 11:40 AM ET.',
+      'Watch the Future of Statistical Programming recording and access shared materials.',
     href: WEBINAR_2026_PATH,
-    cta: 'View Event',
+    cta: 'Open Event Page',
   },
   {
     title: 'NJSUG 2025 Webinar',
@@ -147,7 +148,7 @@ export default function Home() {
                     href={WEBINAR_2026_PATH}
                     className="inline-flex items-center justify-center rounded-full border border-emerald-200/25 bg-emerald-300/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-emerald-300/15"
                   >
-                    View Next Event
+                    View Latest Webinar
                   </Link>
                   <Link
                     href="/join-mailing-list"
@@ -166,7 +167,7 @@ export default function Home() {
 
               <aside className="rounded-[2rem] border border-white/15 bg-black/10 p-6 shadow-xl shadow-black/10 backdrop-blur-sm md:p-8">
                 <p className="text-sm uppercase tracking-[0.24em] text-emerald-100/70">
-                  Next Webinar
+                  Latest Webinar
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold text-white">
                   NJSUG 2026 Webinar
@@ -201,12 +202,20 @@ export default function Home() {
 
                 <div className="mt-6 flex flex-col gap-3">
                   <Link
-                    href={WEBINAR_2026_REGISTRATION_URL}
+                    href={WEBINAR_2026_RECORDING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15"
                   >
-                    Register
+                    Watch Recording
+                  </Link>
+                  <Link
+                    href={WEBINAR_2026_MATERIALS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-black/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+                  >
+                    Bart&apos;s Materials
                   </Link>
                   <Link
                     href={WEBINAR_2026_PATH}
@@ -277,7 +286,7 @@ export default function Home() {
                 Programs
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-white">
-                Upcoming and recent highlights
+                Recent highlights
               </h2>
             </div>
 

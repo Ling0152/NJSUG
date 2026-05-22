@@ -76,6 +76,7 @@ export const steeringCommitteeMembers: CommitteeMember[] = [
 export const pastSteeringCommitteeMembers: CommitteeMember[] = [
   {
     name: 'Changhong Shi',
+    company: 'Emeritus President',
     note: 'Steering Committee member (2024 and 2025)',
     image: '/images/lastest_committee/Changhong Shi.jpg',
   },
@@ -181,6 +182,11 @@ export function Committee() {
                 )}
 
                 <h3 className="mb-2 text-xl font-semibold text-white">{member.name}</h3>
+                {member.company ? (
+                  <p className="mb-2 text-sm font-medium uppercase tracking-wide text-white/70">
+                    {member.company}
+                  </p>
+                ) : null}
                 {member.note ? (
                   <p className="text-sm text-white/70">{member.note}</p>
                 ) : null}
