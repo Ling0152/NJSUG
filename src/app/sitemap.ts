@@ -59,6 +59,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/events/njsug-philasug-2026-call-for-papers`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/events/njsug-2026-webinar`,
       lastModified: new Date(),
       changeFrequency: 'weekly',

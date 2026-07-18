@@ -1,11 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { ArrowRight, Send } from 'lucide-react'
 
 import { Navbar } from '@/components/Navbar'
 import {
-  MATERIALS_URL as WEBINAR_2026_MATERIALS_URL,
-  RECORDING_URL as WEBINAR_2026_RECORDING_URL,
+  CFP_ABSTRACT_DEADLINE,
+  CFP_EVENT_COST,
+  CFP_EVENT_DATE,
+  CFP_LOCATION_NAME,
+  CFP_PATH,
+  CFP_SUBMISSION_MAILTO,
+} from '@/components/NjsugPhilaSug2026CallForPapersPage'
+import {
   WEBINAR_2026_PATH,
 } from '@/components/Njsug2026WebinarPage'
 import { SPRING_MEETING_ARCHIVE_PATH } from '@/components/SpringMeetingArchivePage'
@@ -145,10 +152,10 @@ export default function Home() {
 
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                   <Link
-                    href={WEBINAR_2026_PATH}
+                    href={CFP_PATH}
                     className="inline-flex items-center justify-center rounded-full border border-emerald-200/25 bg-emerald-300/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-emerald-300/15"
                   >
-                    View Latest Webinar
+                    View Call for Papers
                   </Link>
                   <Link
                     href="/join-mailing-list"
@@ -167,61 +174,63 @@ export default function Home() {
 
               <aside className="rounded-[2rem] border border-white/15 bg-black/10 p-6 shadow-xl shadow-black/10 backdrop-blur-sm md:p-8">
                 <p className="text-sm uppercase tracking-[0.24em] text-emerald-100/70">
-                  Latest Webinar
+                  Call for Papers
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold text-white">
-                  NJSUG 2026 Webinar
+                  NJSUG &amp; PhilaSUG Joint Event
                 </h2>
                 <p className="mt-2 text-lg text-emerald-50/95">
-                  Future of Statistical Programming
+                  In-person event in Princeton, New Jersey
                 </p>
-                <div className="mt-6 space-y-4">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
+                <dl className="mt-6 divide-y divide-white/10 border-y border-white/10">
+                  <div className="py-4">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
                       Date
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-white">May 8, 2026</p>
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-white">
+                      {CFP_EVENT_DATE}
+                    </dd>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
-                      Time
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-white">
-                      10:00 AM - 11:40 AM ET
-                    </p>
+                  <div className="py-4">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
+                      Location
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-white">
+                      {CFP_LOCATION_NAME}
+                    </dd>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                    <p className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
-                      Speakers
-                    </p>
-                    <p className="mt-2 text-base font-semibold text-white">
-                      {'Danny Modlin and Bartosz Jab\u0142o\u0144ski'}
-                    </p>
+                  <div className="py-4">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
+                      Cost
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-white">
+                      {CFP_EVENT_COST}
+                    </dd>
                   </div>
-                </div>
+                  <div className="py-4">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
+                      Abstracts Due
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-white">
+                      {CFP_ABSTRACT_DEADLINE}
+                    </dd>
+                  </div>
+                </dl>
 
                 <div className="mt-6 flex flex-col gap-3">
-                  <Link
-                    href={WEBINAR_2026_RECORDING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <a
+                    href={CFP_SUBMISSION_MAILTO}
                     className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15"
                   >
-                    Watch Recording
-                  </Link>
+                    <Send className="mr-2 size-4" aria-hidden="true" />
+                    Submit Abstract
+                  </a>
                   <Link
-                    href={WEBINAR_2026_MATERIALS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={CFP_PATH}
                     className="inline-flex items-center justify-center rounded-full border border-white/10 bg-black/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
                   >
-                    Bart&apos;s Materials
-                  </Link>
-                  <Link
-                    href={WEBINAR_2026_PATH}
-                    className="inline-flex items-center justify-center rounded-full border border-white/10 bg-black/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
-                  >
-                    Event Details
+                    Call Details
+                    <ArrowRight className="ml-2 size-4" aria-hidden="true" />
                   </Link>
                 </div>
               </aside>
