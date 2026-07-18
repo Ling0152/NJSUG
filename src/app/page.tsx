@@ -164,6 +164,12 @@ export default function Home() {
                     Join Mailing List
                   </Link>
                   <Link
+                    href="/join-mailing-list"
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15"
+                  >
+                    Join Mailing List
+                  </Link>
+                  <Link
                     href="/archive"
                     className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15"
                   >
