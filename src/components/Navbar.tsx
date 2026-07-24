@@ -39,10 +39,10 @@ export function Navbar() {
               </Link>
               <div className="invisible absolute left-0 top-full z-20 mt-2 min-w-64 rounded-2xl border border-white/15 bg-[#0A6F69]/95 p-2 opacity-0 shadow-2xl shadow-black/20 backdrop-blur-md transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                 <Link
-                  href="/events/njsug-2026-webinar"
+                  href="/events/njsug-philasug-2026-call-for-papers"
                   className="block rounded-xl px-4 py-3 text-sm font-medium text-white transition hover:bg-white/10"
                 >
-                  NJSUG 2026 Webinar
+                  NJSUG &amp; PhilaSUG Joint Event
                 </Link>
               </div>
             </div>
