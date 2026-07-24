@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, Send } from 'lucide-react'
+import { ArrowRight, Send, UserPlus } from 'lucide-react'
 
 import { Navbar } from '@/components/Navbar'
 import {
@@ -10,7 +10,9 @@ import {
   CFP_EVENT_DATE,
   CFP_LOCATION_NAME,
   CFP_PATH,
-  CFP_SUBMISSION_MAILTO,
+  CFP_REGISTRATION_DEADLINE,
+  CFP_REGISTRATION_URL,
+  CFP_SUBMISSION_URL,
 } from '@/components/NjsugPhilaSug2026CallForPapersPage'
 import {
   WEBINAR_2026_PATH,
@@ -177,7 +179,7 @@ export default function Home() {
                   Call for Papers
                 </p>
                 <h2 className="mt-3 text-3xl font-semibold text-white">
-                  NJSUG &amp; PhilaSUG Joint Event
+                  NJSUG &amp; PhilaSUG Joint In-Person Meeting 2026
                 </h2>
                 <p className="mt-2 text-lg text-emerald-50/95">
                   In-person event in Princeton, New Jersey
@@ -215,11 +217,30 @@ export default function Home() {
                       {CFP_ABSTRACT_DEADLINE}
                     </dd>
                   </div>
+                  <div className="py-4">
+                    <dt className="text-xs uppercase tracking-[0.2em] text-emerald-100/65">
+                      Registration Due
+                    </dt>
+                    <dd className="mt-2 text-base font-semibold text-white">
+                      {CFP_REGISTRATION_DEADLINE}
+                    </dd>
+                  </div>
                 </dl>
 
                 <div className="mt-6 flex flex-col gap-3">
                   <a
-                    href={CFP_SUBMISSION_MAILTO}
+                    href={CFP_REGISTRATION_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-white/20 bg-[#E7FF7A] px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#F2FFA8]"
+                  >
+                    <UserPlus className="mr-2 size-4" aria-hidden="true" />
+                    Register for Free
+                  </a>
+                  <a
+                    href={CFP_SUBMISSION_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/15"
                   >
                     <Send className="mr-2 size-4" aria-hidden="true" />
