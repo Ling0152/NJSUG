@@ -20,7 +20,7 @@ export const CFP_EVENT_DATE = 'Friday, October 9, 2026'
 export const CFP_EVENT_START = '2026-10-09'
 export const CFP_EVENT_COST = 'Free'
 export const CFP_ABSTRACT_OPEN_DATE = 'Friday, July 17, 2026'
-export const CFP_ABSTRACT_DEADLINE = 'Monday, August 31, 2026'
+export const CFP_ABSTRACT_DEADLINE = 'Friday, August 21, 2026'
 export const CFP_SELECTION_DEADLINE = 'Monday, August 31, 2026'
 export const CFP_REGISTRATION_DEADLINE = 'Friday, September 18, 2026'
 export const CFP_CONTACT_EMAIL = 'njsugcontact@gmail.com'
@@ -112,7 +112,7 @@ export function getNjsugPhilaSug2026CfpMetadata(): Metadata {
     openGraph: {
       title: 'Call for Papers - NJSUG & PhilaSUG Joint In-Person Meeting 2026',
       description:
-        'Abstracts are due Monday, August 31, 2026, for the NJSUG & PhilaSUG Joint In-Person Meeting in Princeton, NJ.',
+        'Abstracts are due Friday, August 21, 2026, for the NJSUG & PhilaSUG Joint In-Person Meeting in Princeton, NJ.',
       url: CFP_URL,
       type: 'website',
       siteName: 'NJSUG - New Jersey SAS Users Group',
@@ -130,7 +130,7 @@ export function getNjsugPhilaSug2026CfpMetadata(): Metadata {
       card: 'summary_large_image',
       title: 'Call for Papers - NJSUG & PhilaSUG Joint In-Person Meeting 2026',
       description:
-        'Submit an abstract by Monday, August 31, 2026, for the October 9, 2026 joint event.',
+        'Submit an abstract by Friday, August 21, 2026, for the October 9, 2026 joint event.',
       images: [`${SITE_URL}/images/NJSUGBanner.svg`],
     },
   }
